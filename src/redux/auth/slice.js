@@ -22,7 +22,6 @@ export const authSlice = createSlice({
     isLoggedIn: false,
     isRefreshing: false,
     loading: false,
-    error: null,
   },
   extraReducers: (builder) => {
     builder

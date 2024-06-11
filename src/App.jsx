@@ -8,6 +8,8 @@ import PrivateRoute from "./Components/PrivateRoute";
 import { useDispatch, useSelector } from "react-redux";
 import { refreshUser } from "./redux/auth/operations";
 import { selectIsRefreshing } from "./redux/auth/selectors";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import { TailSpin } from "react-loader-spinner";
 function App() {
   const Home = lazy(() => import("./pages/HomePage/HomePage"));
   const Register = lazy(() => import("./pages/RegisterPage/RegisterPage"));
@@ -20,7 +22,18 @@ function App() {
     dispatch(refreshUser());
   }, [dispatch]);
   return isRefreshing ? (
-    <p>Refreshing...</p>
+    <div className="loader">
+      <TailSpin
+        visible={true}
+        height="80"
+        width="80"
+        color="#6a1aff"
+        ariaLabel="tail-spin-loading"
+        radius="1"
+        wrapperStyle={{}}
+        wrapperClass=""
+      />
+    </div>
   ) : (
     <Layout>
       <Routes>
@@ -28,21 +41,22 @@ function App() {
         <Route
           path="/register"
           element={
-            <RestrictedRoute redirectTo="/tasks" component={<Register />} />
+            <RestrictedRoute redirectTo="/contacts" component={<Register />} />
           }
         />
         <Route
           path="/login"
           element={
-            <RestrictedRoute redirectTo="/tasks" component={<Login />} />
+            <RestrictedRoute redirectTo="/contacts" component={<Login />} />
           }
         />
         <Route
-          path="/tasks"
+          path="/contacts"
           element={
             <PrivateRoute redirectTo="/login" component={<Contacts />} />
           }
         />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Layout>
   );
