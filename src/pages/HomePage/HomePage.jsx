@@ -1,3 +1,7 @@
 export default function HomePage() {
-  return <div className="container">HomePage</div>;
+  return (
+    <section>
+      <div className="container">Welcome to this Site</div>
+    </section>
+  );
 }

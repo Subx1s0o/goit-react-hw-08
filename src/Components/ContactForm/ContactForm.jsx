@@ -4,7 +4,7 @@ import * as Yup from "yup";
 
 import css from "./contactForm.module.css";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contactsOps";
+import { addContact } from "../../redux/contacts/operations";
 const validationSchema = Yup.object().shape({
   name: Yup.string()
     .min(2, "Too Short!")
@@ -13,7 +13,7 @@ const validationSchema = Yup.object().shape({
     .matches(/^[A-Za-z\s]+$/, "Name can only contain english letters"),
   phone: Yup.string()
     .min(4, "Too Short!")
-    .max(30, "Too Long!")
+    .max(15, "Too Long!")
     .required("Required")
     .matches(/^[+\d\s]+$/, "Phone must be a number"),
 });

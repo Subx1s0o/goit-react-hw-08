@@ -1,11 +1,10 @@
-import {
-  selectError,
-  selectFilteredContacts,
-  selectLoading,
-} from "../../redux/contactsSlice";
+import { useSelector } from "react-redux";
+import { selectError, selectLoading } from "../../redux/contacts/selectors";
+import { selectFilteredContacts } from "../../redux/filters/selectors";
 import Contact from "../Contact/Contact";
 import css from "../ContactList/contactList.module.css";
-import { useSelector } from "react-redux";
+import { Rings } from "react-loader-spinner";
+
 export default function ContactList() {
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
@@ -15,7 +14,17 @@ export default function ContactList() {
     <div>
       <ul className={css.userList}>
         {loading ? (
-          <p>loading...</p>
+          <div className={css.loader}>
+            <Rings
+              visible={true}
+              height="80"
+              width="80"
+              color="#6a1aff"
+              ariaLabel="rings-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />
+          </div>
         ) : error ? (
           <p>Something went wrong, check your Internet connection</p>
         ) : (

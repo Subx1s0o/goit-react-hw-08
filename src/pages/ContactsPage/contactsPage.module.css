@@ -1,0 +1,12 @@
+.contacts_main {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.second_side {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}

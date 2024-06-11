@@ -6,24 +6,26 @@ export default function Layout({ children }) {
   return (
     <>
       <AppBar />
-      <Suspense
-        fallback={
-          <div className="loader">
-            <TailSpin
-              visible={true}
-              height="80"
-              width="80"
-              color="#6a1aff"
-              ariaLabel="tail-spin-loading"
-              radius="1"
-              wrapperStyle={{}}
-              wrapperClass=""
-            />
-          </div>
-        }
-      >
-        {children}
-      </Suspense>
+      <main>
+        <Suspense
+          fallback={
+            <div className="loader">
+              <TailSpin
+                visible={true}
+                height="80"
+                width="80"
+                color="#6a1aff"
+                ariaLabel="tail-spin-loading"
+                radius="1"
+                wrapperStyle={{}}
+                wrapperClass=""
+              />
+            </div>
+          }
+        >
+          {children}
+        </Suspense>
+      </main>
     </>
   );
 }
