@@ -6,8 +6,12 @@ const handlePending = (state) => {
   state.error = null;
 };
 
-const handleRejected = (state) => {
-  state.error = "Wrong email or password!";
+const handleRejected = (state, action) => {
+  if (action.payload) {
+    state.error = action.payload.error || "Unknown error occurred";
+  } else {
+    state.error = "Wrong email or password!";
+  }
   state.loading = false;
 };
 

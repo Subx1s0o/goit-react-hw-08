@@ -11,7 +11,7 @@ export default function RegisterForm() {
       .required("Required")
       .matches(/^[A-Za-z\s]+$/, "Name can only contain english letters"),
     email: Yup.string()
-      .min(4, "Too Short!")
+      .min(4, "Too short!")
       .max(30, "Too Long!")
       .required("Required")
       .matches(
@@ -19,7 +19,7 @@ export default function RegisterForm() {
         "Enter a valid email"
       ),
     password: Yup.string()
-      .min(6, "Too Short!")
+      .min(7, "Type more than 7 symbols!")
       .max(20, "Too Long!")
       .required("Required"),
   });
