@@ -1,15 +1,15 @@
 import "./css/App.css";
 
-import Layout from "./Components/Layout/Layout";
-import { Route, Routes } from "react-router-dom";
 import { lazy, useEffect } from "react";
-import RestrictedRoute from "./Components/RestrictedRoute";
-import PrivateRoute from "./Components/PrivateRoute";
+import { TailSpin } from "react-loader-spinner";
 import { useDispatch, useSelector } from "react-redux";
+import { Route, Routes } from "react-router-dom";
+import Layout from "./components/Layout/Layout";
+import PrivateRoute from "./components/PrivateRoute";
+import RestrictedRoute from "./components/RestrictedRoute";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import { refreshUser } from "./redux/auth/operations";
 import { selectIsRefreshing } from "./redux/auth/selectors";
-import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
-import { TailSpin } from "react-loader-spinner";
 function App() {
   const Home = lazy(() => import("./pages/HomePage/HomePage"));
   const Register = lazy(() => import("./pages/RegisterPage/RegisterPage"));
