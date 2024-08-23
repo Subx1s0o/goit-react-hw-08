@@ -1,10 +1,10 @@
-import ContactForm from "../../Components/ContactForm/ContactForm";
-import ContactList from "../../Components/ContactList/ContactList";
-import { contacts_main, second_side } from "./contactsPage.module.css";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import ContactForm from "../../components/ContactForm/ContactForm";
+import ContactList from "../../components/ContactList/ContactList";
+import SearchBox from "../../components/SearchBox/SearchBox";
 import { fetchContacts } from "../../redux/contacts/operations";
-import SearchBox from "../../Components/SearchBox/SearchBox";
+import { contacts_main, second_side } from "./contactsPage.module.css";
 export default function ContactsPage() {
   const dispatch = useDispatch();
   useEffect(() => {
