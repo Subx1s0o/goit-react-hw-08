@@ -3,9 +3,9 @@ import {
   selectIsLoggedIn,
   selectIsRefreshing,
 } from "../../redux/auth/selectors";
-import NavBar from "../NavBar/NavBar";
+import AuthNav from "../AuthNav/AuthNav";
+import Navigation from "../Navigation/Navigation";
 import UserMenu from "../UserMenu/UserMenu";
-import AuthMenu from "../AuthMenu/AuthMenu";
 import { header, header_container } from "./appBar.module.css";
 export default function AppBar() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -14,8 +14,8 @@ export default function AppBar() {
   return (
     <header className={header}>
       <div className={`container ${header_container}`}>
-        <NavBar />
-        {!isRefreshing && <div>{isLoggedIn ? <UserMenu /> : <AuthMenu />}</div>}
+        <Navigation />
+        {!isRefreshing && <div>{isLoggedIn ? <UserMenu /> : <AuthNav />}</div>}
       </div>
     </header>
   );

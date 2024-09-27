@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { logout } from "../auth/operations";
 import {
   addContact,
   changeContact,
   deleteContact,
   fetchContacts,
 } from "./operations";
-
 const initialState = {
   items: [],
   loading: false,
@@ -58,6 +58,11 @@ export const contactsSlice = createSlice({
           (item) => item.id === action.payload.id
         );
         state.items[index] = action.payload;
+      })
+      .addCase(logout.fulfilled, (state) => {
+        state.items = [];
+        state.error = null;
+        state.loading = false;
       });
   },
 });

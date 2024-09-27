@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { link, divlink } from "./authMenu.module.css";
-export default function AuthMenu() {
+export default function AuthNav() {
   return (
     <div className={divlink}>
       <Link className={link} to="/register">
