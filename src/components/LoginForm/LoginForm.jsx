@@ -1,9 +1,9 @@
-import { Field, Form, Formik, ErrorMessage } from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
 import { login } from "../../redux/auth/operations";
 
-export default function RegisterForm() {
+export default function LoginForm() {
   const validationSchema = Yup.object().shape({
     email: Yup.string()
       .min(4, "Too Short!")
